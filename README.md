@@ -1,1 +1,1 @@
-### APWT Project (Frontend React)
+### APWT Frontend Project (React)
