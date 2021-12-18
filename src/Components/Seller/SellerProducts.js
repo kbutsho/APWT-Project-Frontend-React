@@ -29,7 +29,7 @@ const SellerProducts = () => {
             }
         })
     }, [sellerId]);
-    
+
     const history = useHistory();
     const update = (id) => {
         const url = `/updateProduct/${id}`;
@@ -43,6 +43,11 @@ const SellerProducts = () => {
             swal("Success", response.data.message, "success");
         }
     };
+    const productReview = (id) => {
+        const url = `/productReview/${id}`;
+        history.push(url);
+    }
+
     return (
         <section>
             <Header></Header>
@@ -99,7 +104,7 @@ const SellerProducts = () => {
                                                                     <td>{product.price}</td>
                                                                     <td><img src={product.image} height="50px" width="50px" alt="" /></td>
                                                                     <td >
-                                                                        <Link to="/" className="mt-2 btn btn-sm btn-primary mx-1">Orders</Link>
+                                                                        <button className="mt-2 btn btn-sm btn-primary mx-1" onClick={() => productReview(product.id)}>Reviews</button>
                                                                         <button className="mt-2 btn btn-sm btn-warning" onClick={() => update(product.id)}>Update</button>
                                                                         <button className="mt-2 btn btn-sm btn-danger mx-1" onClick={(event) => deleteProduct(event, product.id)}>Delete</button>
                                                                     </td>
@@ -111,7 +116,7 @@ const SellerProducts = () => {
                                             </div>
                                         )
                                 }
-                                <Link className='btn btn-info btn-sm' to="/addProduct">Add Product</Link>
+                                <Link className='btn btn-success btn-sm' to="/addProduct">Add Product</Link>
                             </div>
                         </div>
                     </div>

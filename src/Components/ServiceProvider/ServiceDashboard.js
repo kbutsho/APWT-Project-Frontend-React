@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import swal from 'sweetalert';
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
@@ -87,8 +88,8 @@ const ServiceDashboard = () => {
                                         Address : {user.address}
                                     </div>
                                     <div>
-                                        <a href="/" className="btn btn-warning btn-sm">Edit
-                                            Profile</a>
+                                        <Link to="/updateServiceProviderProfile" className="btn btn-danger btn-sm">Edit
+                                            Profile</Link>
                                     </div>
                                 </div>
                             </div>

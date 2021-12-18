@@ -51,7 +51,7 @@ const CustomerSidebar = () => {
             <div className="px-2 py-5">
 
                 <div className="text-center">
-                    <Link to="/dashboard" style={{ textAlign: "left" }} className="btn font-weight-bold btn-warning my-2 w-75">
+                    <Link to="/dashboard" style={{ textAlign: "left" }} className="btn fw-bold btn-warning my-2 w-75">
                         <div className='d-flex'>
                             <span>
                                 <FontAwesomeIcon style={{ height: "15px" }} className='px-2  w-100' icon={faUserCircle} />

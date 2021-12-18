@@ -41,6 +41,10 @@ const CustomerList = () => {
         const url = `/updateCustomer/${id}`;
         history.push(url);
     }
+    const customerOrderList = (id) => {
+        const url = `/customerOrderList/${id}`;
+        history.push(url);
+    }
     return (
         <section>
             <Header></Header>
@@ -86,9 +90,7 @@ const CustomerList = () => {
                                                     </thead>
                                                     {
                                                         customerList.map(customer =>
-
                                                             <tbody className="text-center">
-
                                                                 <tr>
                                                                     <td>{customer.id}</td>
                                                                     <td>{customer.name}</td>
@@ -103,7 +105,7 @@ const CustomerList = () => {
                                                                             <td className="fw-bold">{customer.status}</td>
                                                                     }
                                                                     <td>
-                                                                        <Link to="/" className="btn btn-sm btn-primary mx-1">Products</Link>
+                                                                    <button className="btn btn-sm btn-primary mx-1" onClick={() => customerOrderList(customer.id)}>Orders</button>
                                                                         <button className="btn btn-sm btn-warning" onClick={() => updateUser(customer.id)}>Update</button>
                                                                         <button className="btn btn-sm btn-danger mx-1" onClick={(event) => deleteUser(event, customer.id)}>Delete</button>
                                                                     </td>

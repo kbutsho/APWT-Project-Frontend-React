@@ -66,10 +66,10 @@ const Header = () => {
                             </Dropdown.Toggle>
 
                             <Dropdown.Menu>
-                                <Dropdown.Item href="/"><span className='fw-bold text-uppercase text-danger'>Television</span></Dropdown.Item>
-                                <Dropdown.Item href="/"><span className='fw-bold text-uppercase text-danger'>Camera</span></Dropdown.Item>
-                                <Dropdown.Item href="/"><span className='fw-bold text-uppercase text-danger'>laptop</span></Dropdown.Item>
-                                <Dropdown.Item href="/"><span className='fw-bold text-uppercase text-danger'>Mobile</span></Dropdown.Item>
+                                <Dropdown.Item href="/television"><span className='fw-bold text-uppercase text-danger'>Television</span></Dropdown.Item>
+                                <Dropdown.Item href="/camera"><span className='fw-bold text-uppercase text-danger'>Camera</span></Dropdown.Item>
+                                <Dropdown.Item href="/laptop"><span className='fw-bold text-uppercase text-danger'>laptop</span></Dropdown.Item>
+                                <Dropdown.Item href="/phone"><span className='fw-bold text-uppercase text-danger'>Mobile</span></Dropdown.Item>
                             </Dropdown.Menu>
                         </Dropdown>
                         <Link className="nav-link mx-2 hover text-white fw-bold" to="/about">About</Link>

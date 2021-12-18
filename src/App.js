@@ -52,15 +52,28 @@ import AddServiceRating from './Components/Customer/AddServiceRating';
 import UpdateServiceReview from './Components/Customer/UpdateServiceReview';
 import AddProductRating from './Components/Customer/AddProductRating';
 import UpdateProductReview from './Components/Customer/UpdateProductReview';
+import UpdateSellerOrder from './Components/Seller/UpdateSellerOrder';
+import SellerSingleProductReview from './Components/Seller/SellerSingleProductReview';
+import SellerProductList from './Components/Admin/SellerProductList';
+import CustomerOrderList from './Components/Admin/CustomerOrderList';
+import ServiceProviderDeliveryList from './Components/Admin/ServiceProviderDeliveryList';
+import UpdateAdminProfile from './Components/Admin/UpdateAdminProfile';
+import UpdateCustomerProfile from './Components/Customer/UpdateCustomerProfile';
+import UpdateSellerProfile from './Components/Seller/UpdateSellerProfile';
+import UpdateServiceProviderProfile from './Components/ServiceProvider/UpdateServiceProviderProfile';
+import Phone from './Components/ProductCategory/Phone';
+import Camera from './Components/ProductCategory/Camera';
+import Television from './Components/ProductCategory/Television';
+import Laptop from './Components/ProductCategory/Laptop';
 
 
 
 // Authorization
-var token = null;
-if (localStorage.getItem('token')) {
-  token = localStorage.getItem('token')
-}
-axios.defaults.headers.common["Authorization"] = token;
+// var token = null;
+// if (localStorage.getItem('token')) {
+//   token = localStorage.getItem('token')
+// }
+// axios.defaults.headers.common["Authorization"] = token;
 axios.defaults.baseURL = "http://127.0.0.1:8000";
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 axios.defaults.headers.post['Accept'] = 'application/json';
@@ -74,6 +87,10 @@ const App = () => {
           <Route path="/contact"><Contact></Contact></Route>
           <Route path="/products"><Products></Products></Route>
           <Route path="/dashboard"><Dashboard></Dashboard></Route>
+          <Route path="/phone"><Phone></Phone> </Route>
+          <Route path="/camera"><Camera></Camera> </Route>
+          <Route path="/television"><Television></Television> </Route>
+          <Route path="/laptop"><Laptop></Laptop> </Route>
 
           <Route path="/login">
             {
@@ -91,32 +108,39 @@ const App = () => {
           </Route>
 
           {/* For Admin start*/}
-
+          <Route path="/updateAdminProfile"><UpdateAdminProfile></UpdateAdminProfile> </Route>
           <Route path="/orderList"><OrderList></OrderList></Route>
           <Route path="/productList"><ProductList></ProductList></Route>
 
-          {/* seller */}
+          {/* seller  operation for admin*/}
           <Route path="/sellerList"><SellerList></SellerList></Route>
           <Route path="/addSeller"><AddSeller></AddSeller></Route>
           <Route path="/updateSeller/:id"><UpdateSeller></UpdateSeller></Route>
+          <Route path="/sellerProductList/:id"><SellerProductList></SellerProductList> </Route>
 
-          {/* ServiceProvider */}
+          {/* ServiceProvider operation for admin */}
           <Route path="/serviceProviderList"><ServiceProviderList></ServiceProviderList></Route>
           <Route path="/addServiceProvider"><AddServiceProvider></AddServiceProvider></Route>
           <Route path="/updateServiceProvider/:id"><UpdateServiceProvider></UpdateServiceProvider></Route>
+          <Route path="/serviceProviderDeliveryList/:id"><ServiceProviderDeliveryList></ServiceProviderDeliveryList> </Route>
 
-          {/* customer */}
+          {/* customer operation for admin */}
           <Route path="/customerList"><CustomerList></CustomerList></Route>
           <Route path="/addCustomer"><AddCustomer></AddCustomer></Route>
           <Route path="/updateCustomer/:id"><UpdateCustomer></UpdateCustomer></Route>
-          {/* for admin end */}
+          <Route path="/customerOrderList/:id"><CustomerOrderList></CustomerOrderList> </Route>
+          {/*  admin end */}
 
 
           {/* for seller start */}
+          <Route path="/updateSellerProfile"><UpdateSellerProfile></UpdateSellerProfile> </Route>
           <Route path="/sellerProducts/:sellerId"><SellerProducts></SellerProducts> </Route>
           <Route path="/sellerOrders/:sellerId"><SellerOrders></SellerOrders> </Route>
           <Route path="/addProduct"><AddProduct></AddProduct> </Route>
           <Route path="/updateProduct/:id"><UpdateProduct></UpdateProduct> </Route>
+          <Route path="/updateSellerOrder/:id"><UpdateSellerOrder></UpdateSellerOrder> </Route>
+          <Route path="/productReview/:id"><SellerSingleProductReview></SellerSingleProductReview> </Route>
+
           {/* seller end */}
 
 
@@ -129,6 +153,7 @@ const App = () => {
                 <CustomerError></CustomerError>
             }
           </Route>
+          <Route path="/updateCustomerProfile"><UpdateCustomerProfile></UpdateCustomerProfile> </Route>
           <Route path="/placeOrder/:id"><PlaceOrder></PlaceOrder> </Route>
           <Route path="/customerServiceReviews/:id"><CustomerServiceReview></CustomerServiceReview> </Route>
           <Route path="/customerProductReviews/:id"><CustomerProductReview></CustomerProductReview> </Route>
@@ -139,10 +164,11 @@ const App = () => {
           <Route path="/updateServiceReview/:id"><UpdateServiceReview></UpdateServiceReview> </Route>
           <Route path="/addProductRating/:id"><AddProductRating></AddProductRating> </Route>
           <Route path="/updateProductReview/:id"><UpdateProductReview></UpdateProductReview> </Route>
-            {/* customer end */}
+          {/* customer end */}
 
 
-
+          {/* service provider area start */}
+          <Route path="/updateServiceProviderProfile"><UpdateServiceProviderProfile></UpdateServiceProviderProfile> </Route>
           <Route path="/serviceProviderNotes/:id"><ServiceProviderNotes></ServiceProviderNotes> </Route>
           <Route path="/serviceProviderDeliveries/:id"><ServiceProviderDeliveries></ServiceProviderDeliveries> </Route>
           <Route path="/serviceProviderReviews/:id"><ServiceProviderReviews></ServiceProviderReviews> </Route>
@@ -150,7 +176,10 @@ const App = () => {
           <Route path="/addToDelivery/:id"><ServiceProviderMakeDelivery></ServiceProviderMakeDelivery> </Route>
           <Route path="/updateDelivery/:id"><UpdateDelivery></UpdateDelivery> </Route>
           <Route path="/makeNote"><MakeNote></MakeNote> </Route>
-            <Route path="/updateNote/:id"><UpdateNote></UpdateNote> </Route>
+          <Route path="/updateNote/:id"><UpdateNote></UpdateNote> </Route>
+
+
+
 
           <Route path="/error"><Error></Error></Route>
           <Route path="/about"><About></About></Route>

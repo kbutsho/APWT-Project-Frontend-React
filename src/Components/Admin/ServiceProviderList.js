@@ -41,6 +41,10 @@ const ServiceProviderList = () => {
         const url = `/updateServiceProvider/${id}`;
         history.push(url);
     }
+    const serviceProviderDeliveries = (id) => {
+        const url = `/serviceProviderDeliveryList/${id}`;
+        history.push(url);
+    }
     return (
         <section>
             <Header></Header>
@@ -103,7 +107,7 @@ const ServiceProviderList = () => {
                                                                             <td className="fw-bold">{service.status}</td>
                                                                     }
                                                                     <td>
-                                                                        <Link to="/" className="btn btn-sm btn-primary mx-1">Products</Link>
+                                                                    <button className="btn btn-sm btn-primary mx-1" onClick={() => serviceProviderDeliveries(service.id)}>Deliveries</button>
                                                                         <button className="btn btn-sm btn-warning" onClick={() => updateUser(service.id)}>Update</button>
                                                                         <button className="btn btn-sm btn-danger mx-1" onClick={(event) => deleteUser(event, service.id)}>Delete</button>
                                                                     </td>
@@ -115,7 +119,7 @@ const ServiceProviderList = () => {
                                             </div>
                                         )
                                 }
-                                <Link className='btn btn-info btn-sm' to="/addServiceProvider">Add Seller</Link>
+                                <Link className='btn btn-primary btn-sm' to="/addServiceProvider">Add Service Provider</Link>
                             </div>
                         </div>
                     </div>

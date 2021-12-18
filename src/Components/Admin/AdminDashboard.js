@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import swal from 'sweetalert';
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
@@ -90,8 +91,8 @@ const AdminDashboard = () => {
                                         Address : {user.address}
                                     </div>
                                     <div>
-                                        <a href="/" className="btn btn-warning btn-sm">Edit
-                                            Profile</a>
+                                        <Link to="/updateAdminProfile" className="btn btn-danger btn-sm">Edit
+                                            Profile</Link>
                                     </div>
                                 </div>
                             </div>

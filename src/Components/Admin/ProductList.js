@@ -82,7 +82,8 @@ const ProductList = () => {
                                                     <thead className="bg-dark text-white text-center">
                                                         <tr >
                                                             <th >Product Id</th>
-                                                            <th >Name</th>
+                                                            <th >Product Name</th>
+                                                            <th >Seller Name</th>
                                                             <th>Category</th>
                                                             <th>Quantity</th>
                                                             <th>Price</th>
@@ -101,12 +102,11 @@ const ProductList = () => {
                                                     </thead>
                                                     {
                                                         productList.map(product =>
-
                                                             <tbody className="text-center">
-
                                                                 <tr>
                                                                     <td>{product.id}</td>
                                                                     <td>{product.name}</td>
+                                                                    <td>{product.sellerName}</td>
                                                                     <td>{product.category}</td>
                                                                     <td>{product.quantity}</td>
                                                                     <td>{product.price}</td>

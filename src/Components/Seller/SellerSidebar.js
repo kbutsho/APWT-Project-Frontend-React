@@ -36,12 +36,13 @@ const SellerSidebar = () => {
         let sellerId = localStorage.getItem('id');
         history.push(`/sellerOrders/${sellerId}`);
     }
+    
     return (
         <div className="col-3" style={{ minHeight: "95vh", background: "#160040" }}>
             <div className="px-2 py-5">
 
                 <div className="text-center">
-                    <Link to="/dashboard" style={{ textAlign: "left" }} className="btn font-weight-bold btn-warning my-2 w-75">
+                    <Link to="/dashboard" style={{ textAlign: "left" }} className="btn fw-bold btn-warning my-2 w-75">
                         <div className='d-flex'>
                             <span>
                                 <FontAwesomeIcon style={{ height: "15px" }} className='px-2  w-100' icon={faUserCircle} />
@@ -66,18 +67,16 @@ const SellerSidebar = () => {
                         </div>
                     </Link>
                 </div>
-
                 <div className="text-center">
-                    <button onClick={sellerOrders} style={{ textAlign: "left" }} className="btn btn-primary my-2 w-75">
+                    <Link to='/productList' style={{ textAlign: "left" }} className="btn btn-primary my-2 w-75">
                         <div className='d-flex'>
                             <span>
                                 <FontAwesomeIcon style={{ height: "15px" }} className='px-2  w-100' icon={faBars} />
                             </span>
-                            <span>My Order</span>
+                            <span>All Product</span>
                         </div>
-                    </button>
+                    </Link>
                 </div>
-
                 <div className="text-center">
                     <button onClick={sellerProducts} style={{ textAlign: "left" }} className="btn btn-primary my-2 w-75">
                         <div className='d-flex'>
@@ -89,17 +88,19 @@ const SellerSidebar = () => {
                     </button>
                 </div>
 
+
                 <div className="text-center">
-                    <Link to='/productList' style={{ textAlign: "left" }} className="btn btn-primary my-2 w-75">
+                    <button onClick={sellerOrders} style={{ textAlign: "left" }} className="btn btn-primary my-2 w-75">
                         <div className='d-flex'>
                             <span>
                                 <FontAwesomeIcon style={{ height: "15px" }} className='px-2  w-100' icon={faBars} />
                             </span>
-                            <span>All Product</span>
+                            <span>My All Order</span>
                         </div>
-                    </Link>
+                    </button>
                 </div>
 
+            
                 <div className="text-center">
                     <span onClick={logout} style={{ textAlign: "left" }} className="font-weight-bold btn btn-danger my-2 w-75">
                         <div className='d-flex'>

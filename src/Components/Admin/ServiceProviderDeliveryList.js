@@ -1,14 +1,16 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { PulseLoader } from 'react-spinners';
 import swal from 'sweetalert';
 import Error from '../Error/Error';
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
-import ServiceProviderSidebar from './ServiceProviderSidebar';
+import AdminSidebar from './AdminSidebar';
 
-const ServiceProviderReviews = () => {
+const ServiceProviderDeliveryList = () => {
+    const { id } = useParams();
     const [loading, setLoading] = useState(false);
     useEffect(() => {
         setLoading(true);
@@ -17,38 +19,37 @@ const ServiceProviderReviews = () => {
         }, 1000);
     }, []);
 
-    const [serviceReview, setServiceReview] = useState([]);
-    const serviceId = localStorage.getItem('id');
+    const [deliveryList, setDeliveryList] = useState([]);
     useEffect(() => {
-        axios.get(`/api/s_ProviderServiceReview/${serviceId}`).then(response => {
+        axios.get(`/api/serviceProviderDeliveries/${id}`).then(response => {
             if (response.data.error) {
                 swal("Warning", "Invalid Token!", "error");
             } else {
                 console.log(response.data);
-                setServiceReview(response.data);
+                setDeliveryList(response.data);
             }
         })
-    }, [serviceId]);
-
+    }, [id]);
 
     //delete
-    const deleteReview = async (event, id) => {
-        const response = await axios.delete(`/api/deleteServiceReview/${id}`);
+    const deleteDelivery = async (event, id) => {
+        const response = await axios.delete(`/api/deleteDelivery/${id}`);
         if (response.data.status === 'success') {
             window.location.reload(false);
             swal("Success", response.data.message, "success");
         }
     };
+
     return (
         <section>
             <Header></Header>
             {
-                localStorage.getItem('role') === 'service' ?
+                localStorage.getItem('role') === 'admin' ?
                     <div>
                         <div className="row">
-                            <ServiceProviderSidebar></ServiceProviderSidebar>
+                            <AdminSidebar></AdminSidebar>
                             <div className="col-9">
-                                <h3 className="mt-5 text-uppercase fw-bold">My Service Reviews</h3>
+                                <h3 className="mt-5 fw-bold text-danger">Service Provider Id {id}'s all deliveries</h3>
                                 {
                                     loading ?
                                         (
@@ -73,23 +74,26 @@ const ServiceProviderReviews = () => {
                                                 <table className="table table-striped table-hover">
                                                     <thead className="bg-dark text-white text-center">
                                                         <tr >
-                                                            <th>Review Id</th>
-                                                            <th>Customer Name</th>
+                                                        <th>Delivery Id</th>
+                                                            <th>Product Name</th>
+                                                            <th>Address</th>
+                                                            <th>Status</th>
                                                             <th>Comment</th>
-                                                            <th>Rating</th>
                                                             <th>Action</th>
                                                         </tr>
                                                     </thead>
                                                     {
-                                                        serviceReview.map(review =>
+                                                        deliveryList.map(deliveries =>
                                                             <tbody className="text-center">
                                                                 <tr>
-                                                                    <td>{review.id}</td>
-                                                                    <td>{review.customerName}</td>
-                                                                    <td>{review.review}</td>
-                                                                    <td className='fw-bold text-danger'>{review.rating} Star</td>
+                                                                <td>{deliveries.id}</td>
+                                                                    <td>{deliveries.productName}</td>
+                                                                    <td>{deliveries.Address}</td>
+                                                                    <td>{deliveries.status}</td>
+                                                                    <td>{deliveries.comment}</td>
+                                                                   
                                                                     <td >
-                                                                        <button className=" btn btn-sm btn-danger mx-1" onClick={(event) => deleteReview(event, review.id)}>Delete</button>
+                                                                        <button className=" btn btn-sm btn-danger mx-1" onClick={(event) => deleteDelivery(event, deliveries.id)}>Delete</button>
                                                                     </td>
                                                                 </tr>
                                                             </tbody>
@@ -99,7 +103,7 @@ const ServiceProviderReviews = () => {
                                             </div>
                                         )
                                 }
-                                <Link className='btn btn-info btn-sm' to="/dashboard">Home</Link>
+                                <Link className='btn btn-success px-3 btn-sm' to="/serviceProviderList">Back</Link>
                             </div>
                         </div>
                     </div>
@@ -111,4 +115,4 @@ const ServiceProviderReviews = () => {
     );
 };
 
-export default ServiceProviderReviews;
+export default ServiceProviderDeliveryList;

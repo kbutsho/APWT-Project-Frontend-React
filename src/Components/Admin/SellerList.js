@@ -41,6 +41,10 @@ const SellerList = () => {
         const url = `/updateSeller/${id}`;
         history.push(url);
     }
+    const sellerProductList = (id) =>{
+        const url = `/sellerProductList/${id}`;
+        history.push(url);
+    }
 
     return (
         <section>
@@ -104,8 +108,9 @@ const SellerList = () => {
                                                                        <td className="fw-bold">{seller.status}</td>
                                                                    }
                                                                     <td>
-                                                                        <Link to="/" className="btn btn-sm btn-primary mx-1">Products</Link>
+                                                                        <button onClick={() => sellerProductList(seller.id)} className="btn btn-sm btn-primary mx-1">Products</button>
                                                                         <button className="btn btn-sm btn-warning" onClick={() => updateUser(seller.id)}>Update</button>
+                                                                       
                                                                         <button className="btn btn-sm btn-danger mx-1" onClick={(event) => deleteUser(event, seller.id)}>Delete</button>
                                                                     </td>
                                                                 </tr>
@@ -116,7 +121,7 @@ const SellerList = () => {
                                             </div>
                                         )
                                 }
-                                <Link className='btn btn-info btn-sm' to="/addSeller">Add Seller</Link>
+                                <Link className='btn btn-success btn-sm' to="/addSeller">Add Seller</Link>
                             </div>
                         </div>
                     </div>

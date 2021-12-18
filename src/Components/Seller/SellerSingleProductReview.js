@@ -1,14 +1,16 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { PulseLoader } from 'react-spinners';
 import swal from 'sweetalert';
 import Error from '../Error/Error';
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
-import ServiceProviderSidebar from './ServiceProviderSidebar';
+import SellerSidebar from './SellerSidebar';
 
-const ServiceProviderReviews = () => {
+const SellerSingleProductReview = () => {
+    const { id } = useParams();
     const [loading, setLoading] = useState(false);
     useEffect(() => {
         setLoading(true);
@@ -17,38 +19,40 @@ const ServiceProviderReviews = () => {
         }, 1000);
     }, []);
 
-    const [serviceReview, setServiceReview] = useState([]);
-    const serviceId = localStorage.getItem('id');
+    const [productReview, setProductReview] = useState([]);
+
     useEffect(() => {
-        axios.get(`/api/s_ProviderServiceReview/${serviceId}`).then(response => {
+        axios.get(`/api/productRatingsAPI/${id}`).then(response => {
             if (response.data.error) {
                 swal("Warning", "Invalid Token!", "error");
             } else {
                 console.log(response.data);
-                setServiceReview(response.data);
+                setProductReview(response.data);
             }
         })
-    }, [serviceId]);
-
-
-    //delete
+    }, [id]);
     const deleteReview = async (event, id) => {
-        const response = await axios.delete(`/api/deleteServiceReview/${id}`);
+        const response = await axios.delete(`/api/deleteProductReview/${id}`);
         if (response.data.status === 'success') {
             window.location.reload(false);
             swal("Success", response.data.message, "success");
         }
     };
+    const history = useHistory();
+    const sellerProducts = () => {
+        let sellerId = localStorage.getItem('id');
+        history.push(`/sellerProducts/${sellerId}`);
+    }
     return (
         <section>
             <Header></Header>
             {
-                localStorage.getItem('role') === 'service' ?
+                localStorage.getItem('role') === 'seller' ?
                     <div>
                         <div className="row">
-                            <ServiceProviderSidebar></ServiceProviderSidebar>
+                            <SellerSidebar></SellerSidebar>
                             <div className="col-9">
-                                <h3 className="mt-5 text-uppercase fw-bold">My Service Reviews</h3>
+                                <h3 className="mt-5 text-uppercase fw-bold">My Products Reviews</h3>
                                 {
                                     loading ?
                                         (
@@ -81,7 +85,7 @@ const ServiceProviderReviews = () => {
                                                         </tr>
                                                     </thead>
                                                     {
-                                                        serviceReview.map(review =>
+                                                        productReview.map(review =>
                                                             <tbody className="text-center">
                                                                 <tr>
                                                                     <td>{review.id}</td>
@@ -99,7 +103,7 @@ const ServiceProviderReviews = () => {
                                             </div>
                                         )
                                 }
-                                <Link className='btn btn-info btn-sm' to="/dashboard">Home</Link>
+                                <button className='btn btn-danger btn-sm px-3' onClick={sellerProducts}>Back</button>
                             </div>
                         </div>
                     </div>
@@ -111,4 +115,4 @@ const ServiceProviderReviews = () => {
     );
 };
 
-export default ServiceProviderReviews;
+export default SellerSingleProductReview;
