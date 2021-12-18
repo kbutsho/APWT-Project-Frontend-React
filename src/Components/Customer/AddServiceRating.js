@@ -53,7 +53,7 @@ const AddServiceRating = () => {
         <div>
 
             <div style={{ width: "400px", background: "gray", padding: "30px", borderRadius: "10px" }}>
-                <h3 className='text-center text-uppercase fw-bold'>Place Order</h3>
+                <h3 className='text-center text-uppercase fw-bold'>Service Review</h3>
                 <form onSubmit={Submit}>
 
                     <input type="text" onChange={handelChange} placeholder='Review' name="review" className='w-100 my-2' />

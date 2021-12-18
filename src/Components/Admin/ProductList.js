@@ -118,7 +118,7 @@ const ProductList = () => {
                                                                                 <div>
                                                                                     <td className='px-3'>{product.sellerName}</td>
                                                                                     <td>
-                                                                                        <button className="btn btn-sm btn-info ml-5 mx-1 mt-2" >Orders</button>
+                                                                                        
                                                                                         <button className="mt-2 btn btn-sm btn-warning" onClick={() => update(product.id)}>Update</button>
                                                                                         <button className="mt-2 btn btn-sm btn-danger mx-1" onClick={(event) => deleteProduct(event, product.id)}>Delete</button>
                                                                                     </td>

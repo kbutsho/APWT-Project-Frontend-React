@@ -108,7 +108,7 @@ const CustomerOrderList = () => {
                                         </div>
                                     )
                             }
-                            <Link className='btn btn-success px-3 btn-sm' to="/sellerList">Back</Link>
+                            <Link className='btn btn-success px-3 btn-sm' to="/CustomerList">Back</Link>
                         </div>
                     </div>
                 </div>

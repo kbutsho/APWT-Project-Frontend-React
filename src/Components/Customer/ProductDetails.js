@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
+import CustomerError from '../Customer/CustomerError'
 
 const ProductDetails = () => {
     const { id } = useParams();
@@ -21,7 +22,10 @@ const ProductDetails = () => {
     return (
         <div>
         <Header></Header>
-           <div className="container my-5">
+           {
+               localStorage.getItem('role') === 'customer' ?
+               (
+                <div className="container my-5">
                <div className="row" style={{ margin:"100px auto" }}>
                <h3 className='fw-bold text uppercase text center' >Product Details</h3>
                    <div className="col-6">
@@ -38,6 +42,8 @@ const ProductDetails = () => {
                    </div>
                </div>
            </div>
+               ): <CustomerError></CustomerError>
+           }
            <Footer></Footer>
         </div>
     );

@@ -30,14 +30,12 @@ import SellerProducts from './Components/Seller/SellerProducts';
 import SellerOrders from './Components/Seller/SellerOrders';
 import AddProduct from './Components/Seller/AddProduct';
 import UpdateProduct from './Components/Seller/UpdateProduct';
-import CustomerError from './Components/Customer/CustomerError';
 import ProductDetails from './Components/Customer/ProductDetails';
 import PlaceOrder from './Components/Customer/PlaceOrder';
 import CustomerServiceReview from './Components/Customer/CustomerServiceReview';
 import CustomerProductReview from './Components/Customer/CustomerProductReview';
 import CustomerOrders from './Components/Customer/CustomerOrders';
 import UpdateCustomerOrder from './Components/Customer/UpdateCustomerOrder';
-
 
 import ServiceProviderNotes from './Components/ServiceProvider/ServiceProviderNotes';
 import ServiceProviderDeliveries from './Components/ServiceProvider/ServiceProviderDeliveries';
@@ -146,13 +144,7 @@ const App = () => {
 
 
           {/* customer start */}
-          <Route path="/productDetails/:id">
-            {
-              localStorage.getItem('role') === 'customer' ?
-                <ProductDetails></ProductDetails> :
-                <CustomerError></CustomerError>
-            }
-          </Route>
+          <Route path="/productDetails/:id"><ProductDetails></ProductDetails> </Route>
           <Route path="/updateCustomerProfile"><UpdateCustomerProfile></UpdateCustomerProfile> </Route>
           <Route path="/placeOrder/:id"><PlaceOrder></PlaceOrder> </Route>
           <Route path="/customerServiceReviews/:id"><CustomerServiceReview></CustomerServiceReview> </Route>
