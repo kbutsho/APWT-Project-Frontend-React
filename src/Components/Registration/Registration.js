@@ -45,7 +45,6 @@ const Registration = () => {
                     history.push('/login');
                 }
             }
-
         });
     }
     return (

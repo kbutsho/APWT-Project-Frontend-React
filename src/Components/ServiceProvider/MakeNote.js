@@ -65,7 +65,7 @@ const MakeNote = () => {
                             <option defaultValue="Delivered">Delivery Done</option>
                         </select>
                         <span style={{ color: "red", fontSize: "12px", fontWeight: "bold" }}>{note.errors.status}</span>
-                       <br />
+                        <br />
                         <button type="submit" className='w-25 btn btn-sm btn-success mt-4' >Add</button>
                         <button className='btn btn-sm btn-danger px-3 mx-5 mt-4' onClick={notes}>Back </button>
                     </form>

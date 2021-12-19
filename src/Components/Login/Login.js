@@ -80,7 +80,6 @@ const Login = () => {
                                     <form onSubmit={loginSubmit} >
                                         <div className="mb-3">
                                             <img className="mr-2 " src="images/login/user.png" alt="" />
-
                                             <select onChange={handelChange} name="role" style={{ padding: "3px 65px 3px 15px" }}>
                                                 <option value="">Login as</option>
                                                 <option value="admin" >Admin</option>

@@ -14,7 +14,6 @@ const AddServiceRating = () => {
             .then(data => setDelivery(data))
     }, [id]);
     console.log(delivery);
-
     const history = useHistory();
     const [serviceReview, setServiceReview] = useState({
         rating: '',

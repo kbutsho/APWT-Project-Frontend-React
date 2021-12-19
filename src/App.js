@@ -72,6 +72,7 @@ import Laptop from './Components/ProductCategory/Laptop';
 //   token = localStorage.getItem('token')
 // }
 // axios.defaults.headers.common["Authorization"] = token;
+
 axios.defaults.baseURL = "http://127.0.0.1:8000";
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 axios.defaults.headers.post['Accept'] = 'application/json';
@@ -142,7 +143,6 @@ const App = () => {
           {/* seller end */}
 
 
-
           {/* customer start */}
           <Route path="/productDetails/:id"><ProductDetails></ProductDetails> </Route>
           <Route path="/updateCustomerProfile"><UpdateCustomerProfile></UpdateCustomerProfile> </Route>
@@ -169,7 +169,7 @@ const App = () => {
           <Route path="/updateDelivery/:id"><UpdateDelivery></UpdateDelivery> </Route>
           <Route path="/makeNote"><MakeNote></MakeNote> </Route>
           <Route path="/updateNote/:id"><UpdateNote></UpdateNote> </Route>
-
+          {/* service provider area end */}
 
 
 

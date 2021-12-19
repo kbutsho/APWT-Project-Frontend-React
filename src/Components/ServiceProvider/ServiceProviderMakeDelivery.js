@@ -75,7 +75,7 @@ const ServiceProviderMakeDelivery = () => {
                         <span style={{ color: "red", fontSize: "12px", fontWeight: "bold" }}>{delivery.errors.status}</span>
                         <br />
                         <button type="submit" className=' btn btn-sm btn-success mt-4' >Delivery</button>
-                        <Link className='btn btn-sm btn-danger px-3 mx-5 mt-4' to="/dashboard">Back </Link>
+                        <Link className='btn btn-sm btn-danger px-3 mx-5 mt-4' to="/serviceProviderOrders">Back </Link>
                     </form>
                 </div>
             </div>

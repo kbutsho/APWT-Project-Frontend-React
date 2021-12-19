@@ -5,10 +5,13 @@ import swal from 'sweetalert';
 
 const AddProduct = () => {
 
-    // set image to imgbb.com
+    // set image to imgbb.com 
     const [imageURL, setImageURL] = useState(null);
+    
     const handleImageUpload = (event) => {
+
         const imageData = new FormData();
+        
         imageData.set('key', '0bdc42b3cf235e6981d19573c2c5875f');
         imageData.append('image', event.target.files[0]);
         axios.post('https://api.imgbb.com/1/upload',
