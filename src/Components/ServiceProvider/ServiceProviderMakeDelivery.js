@@ -9,7 +9,7 @@ const ServiceProviderMakeDelivery = () => {
     const { id } = useParams();
     const [order, setOrder] = useState({});
     useEffect(() => {
-        fetch(`http://127.0.0.1:8000/api/getSingleOrderDetails/${id}`)
+        fetch(`https://react-laravel.kbutsho.com/api/getSingleOrderDetails/${id}`)
             .then(res => res.json())
             .then(data => setOrder(data))
     }, [id]);

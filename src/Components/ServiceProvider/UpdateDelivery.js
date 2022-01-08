@@ -6,7 +6,7 @@ const UpdateDelivery = () => {
     const { id } = useParams();
     const [delivery, setDelivery] = useState({});
     useEffect(() => {
-        fetch(`http://127.0.0.1:8000/api/getSingleDelivery/${id}`)
+        fetch(`https://react-laravel.kbutsho.com/api/getSingleDelivery/${id}`)
             .then(res => res.json())
             .then(data => setDelivery(data))
     }, [id]);
@@ -19,7 +19,7 @@ const UpdateDelivery = () => {
         <div className='d-flex justify-content-center align-items-center' style={{ height: "100vh" }}>
             <div>
                 <div style={{ width: "400px", background: "gray", padding: "30px", borderRadius: "10px" }}>
-                    <form action="http://127.0.0.1:8000/api/updateDeliveryAPI" method='post'>
+                    <form action="https://react-laravel.kbutsho.com/api/updateDeliveryAPI" method='post'>
                         <h3 className='text-center text-uppercase fw-bold'>Update Delivery</h3>
                         <input className='my-2 w-100' hidden required type="text" defaultValue={delivery.id} name="id" />
                         <input className='my-2  w-100' required type="text" defaultValue={delivery.s_ProviderName} name="s_ProviderName" />

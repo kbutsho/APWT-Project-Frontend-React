@@ -9,7 +9,7 @@ const AddServiceRating = () => {
     const { id } = useParams();
     const [delivery, setDelivery] = useState({});
     useEffect(() => {
-        fetch(`http://127.0.0.1:8000/api/getSingleDelivery/${id}`)
+        fetch(`https://react-laravel.kbutsho.com/api/getSingleDelivery/${id}`)
             .then(res => res.json())
             .then(data => setDelivery(data))
     }, [id]);

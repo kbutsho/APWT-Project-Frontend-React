@@ -98,7 +98,7 @@ const CustomerList = () => {
                                                                     <td>{customer.phone}</td>
                                                                     <td>{customer.address}</td>
                                                                     {
-                                                                        customer.status === 'Pending' ?
+                                                                        customer.status === 'Disable' ?
                                                                             (
                                                                                 <td style={{ color: "red" }} className="fw-bold">{customer.status}</td>
                                                                             ) :

@@ -6,7 +6,7 @@ const UpdateSeller = () => {
     const { id } = useParams();
     const [user, setUser] = useState({});
     useEffect(() => {
-        fetch(`http://127.0.0.1:8000/api/getSeller/${id}`)
+        fetch(`https://react-laravel.kbutsho.com/api/getSeller/${id}`)
             .then(res => res.json())
             .then(data => setUser(data))
     },[id]);
@@ -16,7 +16,7 @@ const UpdateSeller = () => {
             <div>
 
                 <div style={{ width: "400px", background: "gray", padding: "30px", borderRadius: "10px" }}>
-                    <form action="http://127.0.0.1:8000/api/updateSeller" method='post'>
+                    <form action="https://react-laravel.kbutsho.com/api/updateSeller" method='post'>
                         <h3 className='text-center text-uppercase fw-bold'>Update Seller</h3>
                         <input className='my-2 w-100' hidden required type="text" defaultValue={user.id} name="id" />
                         <input className='my-2  w-100' required type="text" defaultValue={user.name} name="name" />

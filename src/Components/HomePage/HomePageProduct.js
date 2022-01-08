@@ -5,13 +5,13 @@ const HomePageProduct = () => {
     const [featureProduct, setFeatureProduct] = useState([]);
 
     useEffect(() => {
-        fetch('http://127.0.0.1:8000/api/products')
+        fetch('https://react-laravel.kbutsho.com/api/products')
             .then(res => res.json())
             .then(getData => setLatestProduct(getData[1]));
     }, []);
 
     useEffect(() => {
-        fetch('http://127.0.0.1:8000/api/products')
+        fetch('https://react-laravel.kbutsho.com/api/products')
             .then(res => res.json())
             .then(getData => setFeatureProduct(getData[0]));
     }, []);

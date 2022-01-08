@@ -6,7 +6,7 @@ const UpdateSellerOrder = () => {
     const { id } = useParams();
     const [order, setOrder] = useState({});
     useEffect(() => {
-        fetch(`http://127.0.0.1:8000/api/getSingleOrder/${id}`)
+        fetch(`https://react-laravel.kbutsho.com/api/getSingleOrder/${id}`)
             .then(res => res.json())
             .then(data => setOrder(data))
     }, [id]);
@@ -20,7 +20,7 @@ const UpdateSellerOrder = () => {
         <div className='d-flex justify-content-center align-items-center' style={{ height: "100vh" }}>
             <div>
                 <div style={{ width: "400px", background: "gray", padding: "30px", borderRadius: "10px" }}>
-                    <form action="http://127.0.0.1:8000/api/updateSellerOrderAPI" method='post'>
+                    <form action="https://react-laravel.kbutsho.com/api/updateSellerOrderAPI" method='post'>
                         <h3 className='text-center text-uppercase fw-bold'>Update Order</h3>
                         <select required name="status" className='my-2 w-100'>
                             <option defaultValue="Accept" >Accept</option>

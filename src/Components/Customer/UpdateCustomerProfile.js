@@ -5,7 +5,7 @@ const UpdateCustomerProfile = () => {
     const [user, setUser] = useState({});
     const id = localStorage.getItem('id');
     useEffect(() => {
-        fetch(`http://127.0.0.1:8000/api/customerInfo/${id}`)
+        fetch(`https://react-laravel.kbutsho.com/api/customerInfo/${id}`)
             .then(res => res.json())
             .then(data => setUser(data))
     },[id]);
@@ -13,7 +13,7 @@ const UpdateCustomerProfile = () => {
         <div className='d-flex justify-content-center align-items-center' style={{ height: "100vh" }}>
             <div>
                 <div style={{ width: "400px", background: "gray", padding: "30px", borderRadius: "10px" }}>
-                    <form action="http://127.0.0.1:8000/api/updateCustomerProfile" method='post'>
+                    <form action="https://react-laravel.kbutsho.com/api/updateCustomerProfile" method='post'>
                         <h3 className='text-center text-uppercase fw-bold'>Update Profile</h3>
                         <input className='my-2 w-100' hidden required type="text" defaultValue={user.id} name="id" />
                         <input className='my-2  w-100' required type="text" defaultValue={user.name} name="name" />

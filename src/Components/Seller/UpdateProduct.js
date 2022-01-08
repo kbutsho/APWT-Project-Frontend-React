@@ -5,7 +5,7 @@ const UpdateProduct = () => {
     const { id } = useParams();
     const [product, setProduct] = useState({});
     useEffect(() => {
-        fetch(`http://127.0.0.1:8000/api/getSingleProduct/${id}`)
+        fetch(`https://react-laravel.kbutsho.com/api/getSingleProduct/${id}`)
             .then(res => res.json())
             .then(data => setProduct(data))
     }, [id]);
@@ -14,7 +14,7 @@ const UpdateProduct = () => {
             <div>
 
                 <div style={{ width: "400px", background: "gray", padding: "30px", borderRadius: "10px" }}>
-                    <form action="http://127.0.0.1:8000/api/updateProductAPI" method='post'>
+                    <form action="https://react-laravel.kbutsho.com/api/updateProductAPI" method='post'>
                         <h3 className='text-center text-uppercase fw-bold'>Update Product</h3>
                         <input className='my-2 w-100' hidden required type="text" defaultValue={product.id} name="id" />
                         <input className='my-2  w-100' hidden required type="text" defaultValue={localStorage.getItem('role')} name="role" />

@@ -47,7 +47,6 @@ const MakeNote = () => {
     return (
         <div className='d-flex justify-content-center align-items-center' style={{ height: "100vh" }}>
             <div>
-
                 <div style={{ width: "400px", background: "gray", padding: "30px", borderRadius: "10px" }}>
                     <h3 className='text-center text-uppercase fw-bold'>Make A Note</h3>
                     <form onSubmit={Submit}>

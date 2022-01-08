@@ -73,7 +73,7 @@ import Laptop from './Components/ProductCategory/Laptop';
 // }
 // axios.defaults.headers.common["Authorization"] = token;
 
-axios.defaults.baseURL = "http://127.0.0.1:8000";
+axios.defaults.baseURL = "https://react-laravel.kbutsho.com";
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 axios.defaults.headers.post['Accept'] = 'application/json';
 
@@ -94,7 +94,7 @@ const App = () => {
           <Route path="/login">
             {
               localStorage.getItem('token') ?
-                <Redirect to="/" />
+                <Redirect to="/dashboard" />
                 : <Login></Login>
             }
           </Route>
@@ -143,6 +143,10 @@ const App = () => {
           {/* seller end */}
 
 
+
+
+
+
           {/* customer start */}
           <Route path="/productDetails/:id"><ProductDetails></ProductDetails> </Route>
           <Route path="/updateCustomerProfile"><UpdateCustomerProfile></UpdateCustomerProfile> </Route>
@@ -157,6 +161,8 @@ const App = () => {
           <Route path="/addProductRating/:id"><AddProductRating></AddProductRating> </Route>
           <Route path="/updateProductReview/:id"><UpdateProductReview></UpdateProductReview> </Route>
           {/* customer end */}
+
+
 
 
           {/* service provider area start */}

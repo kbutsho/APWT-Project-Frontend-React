@@ -6,7 +6,7 @@ const UpdateNote = () => {
     const { id } = useParams();
     const [note, setNote] = useState({});
     useEffect(() => {
-        fetch(`http://127.0.0.1:8000/api/getSingleNote/${id}`)
+        fetch(`https://react-laravel.kbutsho.com/api/getSingleNote/${id}`)
             .then(res => res.json())
             .then(data => setNote(data))
     }, [id]);
@@ -19,7 +19,7 @@ const UpdateNote = () => {
         <div className='d-flex justify-content-center align-items-center' style={{ height: "100vh" }}>
             <div>
                 <div style={{ width: "400px", background: "gray", padding: "30px", borderRadius: "10px" }}>
-                    <form action="http://127.0.0.1:8000/api/updateNoteAPI" method='post'>
+                    <form action="https://react-laravel.kbutsho.com/api/updateNoteAPI" method='post'>
                         <h3 className='text-center text-uppercase fw-bold'>Update Order</h3>
                         <input className='my-2 w-100' hidden required type="text" defaultValue={note.id} name="id" />
                         <input className='my-2 w-100' hidden required type="text" defaultValue={note.serviceProviderId} name="serviceProviderId" />

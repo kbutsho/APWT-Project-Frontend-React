@@ -6,7 +6,7 @@ const UpdateServiceReview = () => {
     const { id } = useParams();
     const [review, setReview] = useState({});
     useEffect(() => {
-        fetch(`http://127.0.0.1:8000/api/getSingleServiceReview/${id}`)
+        fetch(`https://react-laravel.kbutsho.com/api/getSingleServiceReview/${id}`)
             .then(res => res.json())
             .then(data => setReview(data))
     }, [id]);
@@ -19,7 +19,7 @@ const UpdateServiceReview = () => {
         <div className='d-flex justify-content-center align-items-center' style={{ height: "100vh" }}>
             <div>
                 <div style={{ width: "400px", background: "gray", padding: "30px", borderRadius: "10px" }}>
-                    <form action="http://127.0.0.1:8000/api/updateServiceReviewAPI" method='post'>
+                    <form action="https://react-laravel.kbutsho.com/api/updateServiceReviewAPI" method='post'>
                         <h3 className='text-center text-uppercase fw-bold'>Update Service Review</h3>
                         <input className='my-2 w-100' hidden required type="text" defaultValue={review.id} name="id" />
 

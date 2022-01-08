@@ -9,7 +9,7 @@ const ProductDetails = () => {
     const { id } = useParams();
     const [product, setProduct] = useState({});
     useEffect(() => {
-        fetch(`http://127.0.0.1:8000/api/getSingleProduct/${id}`)
+        fetch(`https://react-laravel.kbutsho.com/api/getSingleProduct/${id}`)
             .then(res => res.json())
             .then(data => setProduct(data))
     }, [id]);

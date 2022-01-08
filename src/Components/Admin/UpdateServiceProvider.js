@@ -5,7 +5,7 @@ const UpdateServiceProvider = () => {
     const { id } = useParams();
     const [user, setUser] = useState({});
     useEffect(() => {
-        fetch(`http://127.0.0.1:8000/api/getServiceProvider/${id}`)
+        fetch(`https://react-laravel.kbutsho.com/api/getServiceProvider/${id}`)
             .then(res => res.json())
             .then(data => setUser(data))
     });
@@ -14,7 +14,7 @@ const UpdateServiceProvider = () => {
         <div>
 
             <div style={{ width: "400px", background: "gray", padding: "30px", borderRadius: "10px" }}>
-                <form action="http://127.0.0.1:8000/api/updateServiceProvider" method='post'>
+                <form action="https://react-laravel.kbutsho.com/api/updateServiceProvider" method='post'>
                     <h3 className='text-center text-uppercase fw-bold'>Update Service Provider</h3>
                     <input className='my-2 w-100' hidden required type="text" defaultValue={user.id} name="id" />
                     <input className='my-2  w-100' required type="text" defaultValue={user.name} name="name" />
